@@ -51,5 +51,18 @@
         filter: brightness(0.95);
       }
     }
+    .response-error {
+      margin-top: 15px;
+      & small {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        color: #d70000;
+      }
+    }
   }
 }

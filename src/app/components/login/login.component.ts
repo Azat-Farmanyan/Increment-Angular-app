@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  responseError = '';
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -21,9 +22,14 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      this.authService.login(email, password).subscribe((data) => {
-        console.log(data);
-      });
+      this.authService.login(email, password).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (err) => {
+          this.responseError = err!.error!.message;
+        }
+      );
 
       // console.log(email, password);
       // console.log(this.loginForm.value);
