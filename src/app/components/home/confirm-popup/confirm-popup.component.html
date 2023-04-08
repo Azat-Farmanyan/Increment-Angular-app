@@ -1,1 +1,15 @@
-<p>confirm-popup works!</p>
+<div class="popup-bg" (click)="closePopup()"></div>
+<div class="popup-block block">
+  <img class='close-btn' (click)="closePopup()" src="../../../../assets/icons/close-icon.svg" alt="Close">
+  <div class="title-block">
+    <h3 class='title'>Dear user, change the current count or not?</h3>
+  </div>
+  <div class="text-block">
+    <p class='text'>Current counter: {{2}}</p>
+    <p class='text'>Next counter: {{4}}</p>
+  </div>
+  <div class="btns-block">
+    <button class='btn gray-btn' (click)="closePopup()">Cancel</button>
+    <button class='btn green-btn'>Confirm</button>
+  </div>
+</div>

@@ -1,1 +1,40 @@
-<p>login works!</p>
+<div class="login-page">
+  <div class="login-page-block block">
+    <!-- <pre>{{loginForm.valid | json}}</pre>
+    <pre>{{this.loginForm.get('email')?.errors | json}}</pre> -->
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <h3 class="title login-title">Login</h3>
+      <div class="inputs">
+
+        <div class="input-block">
+          <label class='input-title text' for="email">Email</label>
+          <input [ngClass]="{'invalid-input' : this.loginForm.get('email')?.invalid && loginForm.get('email')?.touched}"
+            formControlName='email' id='email' type="email" placeholder='example@gmail.com'>
+          <div *ngIf="!isValidForm()" class="error-text-block">
+            <small *ngIf="this.loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched"
+              class='error-text'>Email is required</small>
+            <small *ngIf="this.loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched"
+              class='error-text'>Try again with a valid email address</small>
+          </div>
+        </div>
+
+        <div class="input-block">
+          <label class='input-title text' for="password">Password</label>
+          <input
+            [ngClass]="{'invalid-input' : this.loginForm.get('password')?.invalid && loginForm.get('password')?.touched}"
+            formControlName='password' id='password' type="password" placeholder='12345'>
+          <div *ngIf="!isValidForm()" class="error-text-block">
+            <small *ngIf="this.loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched"
+              class='error-text'>Password is required</small>
+          </div>
+        </div>
+
+      </div>
+      <button [disabled]="!loginForm.valid" class="btn orange-btn" [ngClass]="{'disabled':!loginForm.valid}"
+        type='submit'>
+        LOGIN
+      </button>
+    </form>
+  </div>
+</div>

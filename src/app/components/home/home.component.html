@@ -1,2 +1,16 @@
-<p>home works!</p>
-<app-confirm-popup></app-confirm-popup>
+<div class="home-page">
+  <div class="home-page-body">
+    <button class='logout-btn btn red-btn' (click)="logOut()">
+      LOGOUT
+    </button>
+    <div class="counter-block block">
+      <div class="text">
+        Counter: {{0}}
+      </div>
+      <button (click)="openPopup()" class="btn orange-btn">
+        Increment
+      </button>
+    </div>
+  </div>
+</div>
+<app-confirm-popup (onClose)="closePopup()" *ngIf="popupIsOpen"></app-confirm-popup>
