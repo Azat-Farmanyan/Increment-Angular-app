@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   popupIsOpen = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   logOut() {
+    this.authService.logout();
     this.router.navigate(['/login']);
   }
 }
