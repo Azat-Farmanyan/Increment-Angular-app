@@ -5,12 +5,13 @@
     </button>
     <div class="counter-block block">
       <div class="text">
-        Counter: {{0}}
+        Counter: {{currentCount}}
       </div>
-      <button (click)="openPopup()" class="btn orange-btn">
+      <button (click)="increment()" class="btn orange-btn">
         Increment
       </button>
     </div>
   </div>
 </div>
-<app-confirm-popup (onClose)="closePopup()" *ngIf="popupIsOpen"></app-confirm-popup>
+<app-confirm-popup [currentCount]="currentCount" [nextCount]="nextCount" (onConfirm)="confirm()"
+  (onClose)="closePopup()" *ngIf="popupIsOpen"></app-confirm-popup>

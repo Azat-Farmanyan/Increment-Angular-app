@@ -5,11 +5,11 @@
     <h3 class='title'>Dear user, change the current count or not?</h3>
   </div>
   <div class="text-block">
-    <p class='text'>Current counter: {{2}}</p>
-    <p class='text'>Next counter: {{4}}</p>
+    <p class='text'>Current counter: {{currentCount}}</p>
+    <p class='text'>Next counter: {{nextCount}}</p>
   </div>
   <div class="btns-block">
     <button class='btn gray-btn' (click)="closePopup()">Cancel</button>
-    <button class='btn green-btn'>Confirm</button>
+    <button class='btn green-btn' (click)="confirm()">Confirm</button>
   </div>
 </div>

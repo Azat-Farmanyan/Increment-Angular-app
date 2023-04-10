@@ -1,24 +1,16 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject, tap } from 'rxjs';
+import { baseUrl } from '../core/constants/baseUrl';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CounterService {
-  currentCount = new BehaviorSubject(0);
   constructor(private http: HttpClient) {}
 
-  // increment(email: string, password: string): Observable<{ token: string }> {
-  //   const loginData = {
-  //     email: email,
-  //     password: password,
-  //   };
-  //   return this.http.post<{ token: string }>(`${baseUrl}login`, loginData).pipe(
-  //     tap((res) => {
-  //       localStorage.setItem(userKey, JSON.stringify(res));
-  //       this.setToken(res.token);
-  //     })
-  //   );
-  // }
+  increment(count: number) {
+    return this.http.post(`${baseUrl}increment`, { count });
+  }
 }
