@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-import { CounterService } from 'src/app/services/counter.service';
+import { AuthService } from '../../services/auth.service';
+// import { AuthService } from 'src/app/services/auth.service';
+import { CounterService } from '../../services/counter.service';
 
 @Component({
   selector: 'app-home',
